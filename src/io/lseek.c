@@ -8,20 +8,19 @@
 
 off_t lseek(int fd, off_t offset, int whence)
 {
-	/* TODO: Implement lseek(). */
+	//  lseek -> changes the location of a file's read/write pointer
 
-	// 	lseek -> schimba locatia unui read/ write pointer a unui fisier
-
-	/* fd = ce fisier sa deschida, 
-	   offset = offset-ul pointer-ului masurat in bytes
-	   whence = metoda de interpretare a offset-ului */
-	/* apel de sistem lseek; daca apelul a reusit 
-	ii returnez valoarea, altfel modific errno si returnez
+	/* fd = which file to open,
+	   offset = the pointer's offset measured in bytes
+	   whence = the method of interpreting the offset */
+	/* system call lseek; if the call succeeded
+	I return its value, otherwise I update errno and return
 	-1 */
 	int rez = syscall(__NR_lseek, fd, offset, whence);
+	
 	if (rez >= 0)
 		return rez;
-
 	errno = -rez;
+	
 	return -1;
 }
