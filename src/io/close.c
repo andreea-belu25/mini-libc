@@ -19,5 +19,6 @@ int close(int fd)
 	if (rez >= 0)
 		return rez;
 	errno = -rez;
+	
 	return -1;
 }
