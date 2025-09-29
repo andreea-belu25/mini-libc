@@ -4,14 +4,16 @@
 #include <internal/syscall.h>
 
 int puts(const char *str) {
-    /* *(str + index) -> caracter
-        str + index -> adresa (pentru syscall imi trebuie adresa) */
+    /* *(str + index) -> character
+       str + index -> address (for syscall I need the address) */
     int index = 0;
+    
     for (index = 0; *(str + index); index++)
-    //  trebuie printat fiecare byte => syscall write
+        //  each byte must be printed => syscall write
         syscall(1, 1, str + index, 1);
 
     syscall(1, 1, "\n", 1);
-    //  puts returneaza by default 0 daca reuseste printarea
+    
+    //  puts returns 0 by default if the printing succeeds
     return 0;
 }
