@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
-/* implementare biblioteca time.h
-   utila pentru sleep si nanosleep */
+/* implement time.h library
+   useful for sleep and nanosleep */
 
-/*  t1 = timp in secunde
-    t2 = timp in nanosecunde */
+/*  t1 = time in seconds
+    t2 = time in nanoseconds */
 struct timespec {
     long t1, t2;
 };
