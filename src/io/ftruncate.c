@@ -9,14 +9,16 @@
 int ftruncate(int fd, off_t length)
 {
 	/* TODO: Implement ftruncate(). */
-	// 	ftruncate -> redimensioneaza un fisier la o anumita dim
-	//  fd = ce fisier sa deschida, length = lung specifica
-	/* apel de sistem ftruncate; daca apelul a reusit 
-	ii returnez valoarea, altfel modific errno si returnez
+	//  ftruncate -> resizes a file to a certain size
+	//  fd = which file to open, length = specified length
+	/* system call ftruncate; if the call succeeded
+	I return its value, otherwise I update errno and return
 	-1 */
 	int rez = syscall(__NR_ftruncate, fd, length);
+	
 	if (rez >= 0)
 		return rez;
 	errno = -rez;
+	
 	return -1;
 }
