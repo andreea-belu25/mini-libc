@@ -6,16 +6,17 @@
 
 int fstat(int fd, struct stat *st)
 {
-	/* TODO: Implement fstat(). */
-	//  fstat -> obtine informatie despre un fisier deschis
-	/*  fd = file descriptor-ul asociat fisierului
-		st = unde e retinuta informatia */
-
-	//  syscall asemanator ca la restul
+	// fstat -> obtains information about an open file
+	/*  fd = the file descriptor associated with the file
+		st = where the information is stored */
+	
+	// Syscall similar to the rest
 	int rez = syscall(__NR_fstat, fd, st);
-
+	
 	if (rez >= 0)
 		return rez;
+	
 	errno = -rez;
+	
 	return -1;
 }
