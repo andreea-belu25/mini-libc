@@ -7,27 +7,26 @@
 
 int open(const char *filename, int flags, ...)
 {
-	/* TODO: Implement open system call. */
-	/* lista variabila de argumente pentru modurile 
-	posibile de deschidere a fisierului */
+	/* variable argument list for the possible
+	   file opening modes */
 	va_list valist;
 	va_start(valist, flags);
 	int a = va_arg(valist, int);
 	va_end(valist);
 
-	// 	open -> deschidere fisier
+	//  open -> file opening
 
-	/* filename = ce fisier sa deschida, 
-	   flags = permisiunile fisierului
-	   ... -> lista variabila de argumente */
-	/* apel de sistem open; daca apelul a reusit 
-	ii returnez valoarea, altfel modific errno si returnez
+	/* filename = which file to open,
+	   flags = file permissions
+	   ... -> variable argument list */
+	/* system call open; if the call succeeded
+	I return its value, otherwise I update errno and return
 	-1 */
-
 	int rez = syscall(__NR_open, filename, flags, a);
+	
 	if (rez >= 0)
 		return rez;
-
 	errno = -rez;
+	
 	return -1;
 }
