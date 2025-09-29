@@ -19,8 +19,6 @@ SRCS = syscall.c \
        errno.c \
        crt/__libc_start_main.c
 
-# TODO: Add sleep.c and puts.c dependency.
-
 OBJS = $(patsubst %.c,%.o,$(SRCS))
 
 all: libc.a
