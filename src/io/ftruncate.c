@@ -8,7 +8,6 @@
 
 int ftruncate(int fd, off_t length)
 {
-	/* TODO: Implement ftruncate(). */
 	//  ftruncate -> resizes a file to a certain size
 	//  fd = which file to open, length = specified length
 	/* system call ftruncate; if the call succeeded
