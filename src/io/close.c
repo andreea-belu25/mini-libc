@@ -9,10 +9,10 @@ int close(int fd)
 {
 	/* TODO: Implement close(). */
 
-	//  close -> inchidere fisier
-	//  fd = ce fisier sa inchida
-	/* apel de sistem close; daca apelul a reusit 
-	ii returnez valoarea, altfel modific errno si returnez
+	//  close -> file closing
+	//  fd = which file to close
+	/* system call close; if the call succeeded
+	I return its value, otherwise I update errno and return
 	-1 */
 	int rez = syscall(__NR_close, fd);
 
