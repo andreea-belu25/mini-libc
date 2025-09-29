@@ -8,19 +8,18 @@
 
 int truncate(const char *path, off_t length)
 {
-	/* TODO: Implement truncate(). */
+	/* truncate -> resizes a file to a certain size
+	   by shortening it */
 
-	/* truncate -> redimensioneaza un fisier la o anumita dim
-	   prin micsorare */
-
-	//  path = calea fisierului de deschis, length = lung specifica
-	/* apel de sistem truncate; daca apelul a reusit 
-	ii returnez valoarea, altfel modific errno si returnez
+	//  path = the path of the file to open, length = specified length
+	/* system call truncate; if the call succeeded
+	I return its value, otherwise I update errno and return
 	-1 */
 	int rez = syscall(__NR_truncate, path, length);
 
 	if (rez >= 0)
 		return rez;
 	errno = -rez;
+	
 	return -1;
 }
